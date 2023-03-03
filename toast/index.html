@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toast</title>
+    <link rel="stylesheet" href="./assets/css/styles.min.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="main" class="main">
+        <div id="toast">
+        </div>
+        <div class="box-btn">
+          <button onclick="showToastInfo();" class="btn btn--info">Click info</button>
+          <button onclick="showToastWarning();" class="btn btn--warning">Click warning</button>
+          <button onclick="showToastSuccess();" class="btn btn--success">Click success</button>
+        </div>
+      </div>
+    </div>
+    <!-- script -->
+    <script>
+      function showToast ({
+        type = "info",
+        heading = "",
+        desc = "",
+        duration = 4000
+      }) {
+      // lấy ra id toast từ DOM
+        const nodeContainer = document.getElementById('toast');
+
+        if (nodeContainer) {
+          // tạo thẻ div mới (trong document, lúc này chưa thêm vào trong #toast)
+
+          const toast = document.createElement('div');
+
+          //thêm các class cho thẻ vừa tạo
+
+          toast.classList.add('toast', `toast--${type}`)
+
+          // tạo 1 object chứa các icons
+
+          const icons = {
+            info : 'fa-solid fa-info',
+            warning : 'fa-solid fa-exclamation',
+            success : 'fa-solid fa-check'
+          }
+
+          const icon = icons[type];
+
+          // tạo hàm setTimeOut để xóa element ra khỏi #toast
+
+          const autoRemove = setTimeout(() => {
+            nodeContainer.removeChild(toast)
+          }, duration + 1000);
+
+
+          // tạo hàm khi ấn vào dấu x thì xóa phần tử đó đi
+          toast.onclick = function(e) {
+            if(e.target.closest('.toast__close')) {
+              nodeContainer.removeChild(toast);
+              clearTimeout(autoRemove);
+            }
+          }
+
+
+          // thêm animation vào script
+
+          toast.style.animation = `slideFromRight 1s linear, slideOut 0.5s linear ${duration / 1000}s forwards`;
+
+
+          // -thêm code html của toast bên trong của toast vào trong thẻ toast ms tạo
+
+          toast.innerHTML =
+            `<i class="toast__icon ${icon}"></i>
+              <div class="toast__content" >
+                        <h3 class="toast__content__heading">${heading}</h3>
+                        <p class="toast__content__desc">
+                          ${desc}
+                        </p>
+                </div >
+              <button class="toast__close">
+                <i class="fa-solid fa-xmark"></i>
+              </button>`
+
+              // thêm thẻ toast vào trong #toast
+            nodeContainer.appendChild(toast)
+        }
+      }
+
+
+
+
+      function showToastInfo () {
+
+        showToast({
+          heading :"Did you know?",
+          desc :"Here is something that you might like to know.",
+        })
+      }
+
+      function showToastWarning() {
+        showToast({
+          type: "warning",
+          heading: "Uh oh, something went wrong",
+          desc: "Sorry! there was a problem with your request.",
+        })
+      }
+
+      function showToastSuccess() {
+        showToast({
+          type: "success",
+          heading: "Yah! everything worked!",
+          desc: "Congrats on the internet loading your request.",
+        })
+      }
+    </script>
+
+  </body>
+</html>
+
+
+<!-- Các bước tu duy tạo chuyển động của toast -->
+<!-- tạo các function bao gồm 1 function chung và các function show riêng. -->
+
+<!-- xác định những giá trị khác nhau giữa các toast: type, heading, desc, ... -->
+
+<!-- đặt value mặc định cho những key trên ở trong 1 function chung đặt trong 1 object -->
+
+<!-- tạo event onclick trong các btn -->
+
+<!-- viết trong fuction chung :
+
+  -lấy ra thẻ có id là toast
+  -check nếu lấy được thẻ có id toast :if(nodeContainer)
+  -thì tạo thẻ div băng document.createElement('div')
+  -thêm các class cần thiết vào thẻ div vừa thêm :toast.classList.add('toast', `toast--${type}`)
+  -thêm 1 danh sach các icons const icons = {}
+  -lấy ra icon theo type: const icon = icons[type];
+  -thêm code html bên trong của toast vào trong thẻ toast ms tạo
+  -nội suy một số giá trị ${type} ${heading} ${desc}
+  -thêm toast vừa tạo vào nodeContainer.
+  -xóa phần tử sau khi đã ẩn đi
+  -xử lý khi click vào nút close
+  -chuyển animation sang js
+-->
