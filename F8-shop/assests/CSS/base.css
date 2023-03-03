@@ -1,0 +1,182 @@
+:root{
+    --white-color:#fff;
+    --black-color:#000;
+    --text-color: #5c5c5c;
+    --primarily-color:#fb5533;
+    --gold-color:#fece3f;
+    --header-height:120px;
+    --header-navbar-height:35px;
+    --header-main-height:calc(var(--header-height) - var(--header-navbar-height))
+}
+
+*{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.vnd{
+    font-size: 0.9rem !important;
+    margin-right: -4px;
+    display: inline-flex;
+}
+
+
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.come-back{
+    height: 58px;
+    display: flex;
+    align-items: center;
+}
+
+.come-back__btn{
+    width: 100%;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    letter-spacing: 1px;
+}
+
+/* keyframe chuyển động */
+@keyframes showwing-up{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes show-notify {
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes showw {
+    from{
+        transform: scale(var(--show-from));
+    }
+    to{
+        transform: scale(var(--show-to));
+    }
+}
+
+/* modal */
+
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+}
+
+.modal__overlay{
+    background-color: rgba(0, 0, 0, 0.39);
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    animation: showwing-up linear 0.1s;
+}
+
+.modal__body{
+    --show-from: 0.7;
+    --show-to:1;
+    background-color: #fff;
+    width: 500px;
+    margin: auto;
+    z-index: 1;
+    border-radius: 2px;
+    animation: showw linear 0.1s;
+}
+
+/* nút */
+
+.btn{
+    min-width: 132px;
+    height: 34px;
+    border: none;
+    background-color: var(--white-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    border-radius: 2px;
+}
+
+.btn.btn--submit{
+    background-color: var(--primarily-color);
+    color: var(--white-color);
+}
+
+.btn--primarily{
+    background-color: var(--primarily-color) !important;
+    color: var(--white-color) !important;
+}
+
+.btn.btn--submit:hover{
+    opacity: 0.9;
+}
+
+.grid__shop-nav-btn{
+    width: 100%;
+}
+
+.logo--blurred{
+    background-color: rgba(0, 0, 0, 0.39);
+    width: 100%;
+    height: 100%;
+}
+
+.disable{
+    opacity: 0.3 !important;
+    cursor:default !important;
+}
+
+.chat-with-shop{
+    background-color: var(--white-color);
+    width: 100px;
+    height: 48px;
+    border-radius: 5px;
+    position: fixed;
+    right: 15px;
+    bottom: 0;
+    padding: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.103);
+    color: #ee4d2d;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.chat-with-shop i{
+    font-size: 2.5rem;
+}
+
+.chat-with-shop span{
+    font-size: 1.9rem;
+    font-weight: 500;
+}

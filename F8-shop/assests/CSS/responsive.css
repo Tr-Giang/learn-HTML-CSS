@@ -1,0 +1,241 @@
+/* mobile & tablet */
+@media (max-width:1023px){
+    
+}
+
+
+/* mobile */
+@media (max-width:739px){
+
+    :root{
+        --header-height:120px;
+        --header-navbar-height:0;
+    }
+    
+    .hidden-on-mobile{
+        display: none;
+    }
+
+    .show-on-mobile{
+        display: block;
+    }
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        background-image: url("https://cf.shopee.vn/file/8d99562ed37b40ead1ca1cad56f58c69");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 50vw;
+    }
+
+    .header__main{
+        margin:-33vw 0 0 0;
+        flex: 1;
+    }
+
+    .header__cart {
+        width: 30px;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+
+    .header__my-cart{
+        top: 521%;
+        right: -53px;
+    }
+
+    .header__my-cart::before{
+        display: none;
+    }
+
+    .list-products__name{
+        width: 182px;
+    }
+
+    .amount-products{
+        right: -5px;
+        font-size: 1rem;
+    }
+
+    .header__search{
+        margin-left: 12px;
+        background-color: rgba(255, 255, 255, 0.342);
+    }
+
+    .input-search{
+        text-overflow: ellipsis;
+        background-color: rgba(255, 255, 255, 0.37);
+        color: #000;
+    }
+    .search-history a{
+        display: block;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+
+    .search-where-list{
+        left: 0;
+    }
+
+    .header__navbar{
+        order: 1;
+        margin: 0;
+    }
+
+    .header__navbar-user span{
+        display: none;
+    }
+
+    .header__navbar-item{
+        padding: 0 12px;
+        margin-top: -31vw;
+    } 
+
+    li + li{
+        border: none;
+    }
+
+    .header__navbar-user img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .header__navbar-user-menu::before{
+        display: none;
+    }
+
+    .header__logo{
+        display: none;
+    }
+
+    .container{
+        margin-top: 50vw;
+    }
+
+    .grid__scroll-nav,
+    .grid__sort-mobile{
+        display: flex;
+    }
+}
+
+/* tablet */
+@media (min-width:740px) and (max-width:1023px){
+
+    :root{
+        --header-height:120px;
+        --header-navbar-height:0;
+    }
+    
+    .hidden-on-tablet{
+        display: none;
+    }
+    .show-on-tablet{
+        display: block;
+    }
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        background-image: url("https://cf.shopee.vn/file/8d99562ed37b40ead1ca1cad56f58c69");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 50vw;
+    }
+
+    .header__main{
+        margin:-33vw 0 0 0;
+        flex: 1;
+    }
+
+    .header__cart {
+        width: 30px;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+
+    .header__my-cart{
+        top: 521%;
+        right: -53px;
+    }
+
+    .header__my-cart::before{
+        display: none;
+    }
+
+    .list-products__name{
+        width: 182px;
+    }
+
+    .amount-products{
+        right: -5px;
+        font-size: 1rem;
+    }
+
+    .header__search{
+        margin-left: 12px;
+        background-color: rgba(255, 255, 255, 0.342);
+    }
+
+    .input-search{
+        text-overflow: ellipsis;
+        background-color: rgba(255, 255, 255, 0.37);
+        color: #000;
+    }
+    .search-history a{
+        display: block;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+    }
+
+    .search-where-list{
+        left: 0;
+    }
+
+    .header__navbar{
+        order: 1;
+        margin: 0;
+    }
+
+    .header__navbar-user span{
+        display: none;
+    }
+
+    .header__navbar-item{
+        padding: 0 12px;
+        margin-top: -31vw;
+    } 
+
+    li + li{
+        border: none;
+    }
+
+    .header__navbar-user img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .header__navbar-user-menu::before{
+        display: none;
+    }
+
+    .header__logo{
+        display: none;
+    }
+
+    .container{
+        margin-top: 50vw;
+    }
+
+    .grid__sort-mobile{
+        display: flex;
+        margin-top: 0;
+        /* position: fixed; */
+        z-index: 1;
+    }
+}
+}
